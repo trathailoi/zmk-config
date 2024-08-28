@@ -9,6 +9,14 @@
 #include <dt-bindings/zmk/bt.h>
 
 / {
+        conditional_layers {
+          compatible = "zmk,conditional-layers";
+          tri_layer {
+            if-layers = <1 2>;
+            then-layer = <3>;
+          };
+        };
+
         keymap {
                 compatible = "zmk,keymap";
 
@@ -50,6 +58,20 @@
    &kp LCTRL &trans   &trans &trans   &trans   &trans                           &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
    &kp LSHFT &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3     &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
                              &kp LGUI &trans   &kp SPACE                        &kp RET   &trans    &kp RALT
+                        >;
+                };
+
+                adjust_layer {
+// ----------  Just for testing  -------------------------------------------------------------------------------
+// |  TAB |  A  |  B  |  C  |  0 |    |   |     |  MUTE   | VOL_DOWN | VOL_UP |     | BKSP |
+// | CTRL |  D  |  E  |  F  |    |    |   | LFT |  DWN    |    UP    |   RGT  |     |      |
+// | SHFT |  G  |  H  |  I  |    |    |   |     | PG_DOWN |  PG_UP   |        |     |      |
+//                    | GUI |     | SPC |   | ENT |       | ALT     |
+                        bindings = <
+   &kp TAB    &kp A   &kp B   &kp C   &kp N0   &trans     &trans   &kp C_MUTE    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans &kp BSPC
+   &kp LCTRL  &kp D   &kp E   &kp F   &trans   &trans     &kp LEFT &kp DOWN      &kp UP             &kp RIGHT        &trans &trans
+   &kp LSHFT  &kp N7   &kp N8   &kp N9   &trans   &trans     &trans   &kp PAGE_DOWN &kp PAGE_UP        &trans           &trans &trans
+                   &kp LGUI &trans &kp SPACE                 &kp RET &trans &kp RALT
                         >;
                 };
         };
