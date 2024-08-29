@@ -24,12 +24,12 @@
 
           globe_combo {
             bindings = <&kp GLOBE>;
-            key-positions = <11 35>;
+            key-positions = <41 23>; // alt/option + '
           };
 
           to_adjust_2_layer {
             bindings = <&mo 4>;
-            key-positions = <24 35>;
+            key-positions = <41 35>;  // alt/option + esc
           };
         };
 
