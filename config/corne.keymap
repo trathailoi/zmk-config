@@ -22,6 +22,11 @@
         combos {
           compatible = "zmk,combos";
 
+          globe_combo {
+            bindings = <&kp GLOBE>;
+            key-positions = <11 35>;
+          };
+
           to_adjust_2_layer {
             bindings = <&mo 4>;
             key-positions = <24 35>;
@@ -46,15 +51,15 @@
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  0 |    |   | C_BRI_DN | C_BRI_DN |  MUTE    | VOL_DOWN | VOL_UP | BKSP |
-// | CTRL |  4  |  5  |  6  |    |    |   | LFT      |  DWN     |    UP    |    RGT   |        |      |
-// | SHFT |  7  |  8  |  9  |    |    |   |          | PG_DOWN  |  PG_UP   |          |        |      |
+// |  TAB |  1  |  2  |  3  |  0 |  % |   |    +     |     -    |     *    |     /    |    ^    | BKSP |
+// | CTRL |  4  |  5  |  6  |  . |    |   | LFT      |  DWN     |    UP    |    RGT   |        |      |
+// | SHFT |  7  |  8  |  9  |  , |    |   |          | PG_DOWN  |  PG_UP   |          |        |      |
 //                    | GUI |     | SPC |   | ENT |       | ALT     |
                         bindings = <
-   &kp TAB    &kp N1   &kp N2   &kp N3   &kp N0   &trans              &kp C_BRI_DN   &kp C_BRI_UP   &kp C_MUTE   &kp C_VOLUME_DOWN     &kp C_VOLUME_UP  &kp BSPC
-   &kp LCTRL  &kp N4   &kp N5   &kp N6   &trans   &trans              &kp LEFT       &kp DOWN       &kp UP       &kp RIGHT             &trans           &trans
-   &kp LSHFT  &kp N7   &kp N8   &kp N9   &trans   &trans              &trans         &kp PAGE_DOWN  &kp PAGE_UP  &trans                &trans           &trans
-                   &kp LGUI &trans &kp SPACE                          &kp RET        &trans         &kp RALT
+   &kp TAB    &kp N1   &kp N2   &kp N3   &kp N0    &kp PRCNT           &kp PLUS       &kp MINUS      &kp ASTRK    &kp FSLH    &kp CARET        &kp BSPC
+   &kp LCTRL  &kp N4   &kp N5   &kp N6   &kp DOT   &trans              &kp LEFT       &kp DOWN       &kp UP       &kp RIGHT   &trans           &trans
+   &kp LSHFT  &kp N7   &kp N8   &kp N9   &kp COMMA &trans              &trans         &kp PAGE_DOWN  &kp PAGE_UP  &trans      &trans           &trans
+                   &kp LGUI &trans &kp SPACE                           &kp RET        &trans         &kp RALT
                         >;
                 };
 
@@ -88,15 +93,15 @@
 
                 adjust_2_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  F1  |  F2  |  F3  |       |     |                  |     |     |     |     |     | BKSP |
-// | CTRL |  F4  |  F5  |  F6  |  F12  |     |                  |     |     |     |     |     |      |
-// | SHFT |  F7  |  F8  |  F9  |  F10  |  F11  |                |     |     |     |     |     |      |
-//                    | GUI |     | SPC |                       | ENT |     | ALT |
+// |  TAB |  F1  |  F2  |  F3  |       |     |                  | C_BRI_DN | C_BRI_DN |  MUTE    | VOL_DOWN | VOL_UP   |      |
+// | CTRL |  F4  |  F5  |  F6  |  F12  |     |                  |          |          |  PREV    |  PAUSE   |  NEXT    |      |
+// | SHFT |  F7  |  F8  |  F9  |  F10  |  F11  |                |          |          |          |          |          |      |
+//                    | GUI |     | SPC |                       | ENT      |          | ALT |
                         bindings = <
-   &kp TAB   &kp F1 &kp F2 &kp F3 &trans   &trans                           &trans &trans  &trans  &trans &trans &trans
-   &kp LCTRL &kp F4 &kp F5 &kp F6 &kp F12  &trans                           &trans &trans  &trans  &trans &trans &trans
-   &kp LSHFT &kp F7 &kp F8 &kp F9 &kp F10  &kp F11                          &trans &trans  &trans  &trans &trans &trans
-                        &kp LGUI &trans   &kp SPACE                         &kp RET   &trans    &kp RALT
+   &kp TAB   &kp F1 &kp F2 &kp F3 &trans   &trans                           &kp C_BRI_DN   &kp C_BRI_UP   &kp C_MUTE   &kp C_VOLUME_DOWN     &kp C_VOLUME_UP  &kp BSPC
+   &kp LCTRL &kp F4 &kp F5 &kp F6 &kp F12  &trans                           &trans         &trans         &kp V_PREV   &kp C_PP              &kp C_NEXT       &trans
+   &kp LSHFT &kp F7 &kp F8 &kp F9 &kp F10  &kp F11                          &trans         &trans         &trans       &trans                &trans           &trans
+                        &kp LGUI &trans   &kp SPACE                         &kp RET        &trans         &kp RALT
                         >;
                 };
         };
