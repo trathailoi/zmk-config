@@ -27,6 +27,11 @@
             key-positions = <41 23>; // alt/option + '
           };
 
+          capslock_combo {
+            bindings = <&kp CAPS>;
+            key-positions = <41 11>; // alt/option + backspace (top right button)
+          };
+
           to_adjust_2_layer {
             bindings = <&mo 4>;
             key-positions = <41 35>;  // alt/option + esc
@@ -52,12 +57,12 @@
                 lower_layer {
 // -----------------------------------------------------------------------------------------
 // |  TAB |  1  |  2  |  3  |  4 |  5 |     |    6     |     7    |     8    |     9    |    0   |      |
-// | CTRL |     |     |     |    |    |     | LFT      |  DWN     |    UP    |    RGT   |        |      |
+// | CTRL | CAPS|     |     |    |    |     | LFT      |  DWN     |    UP    |    RGT   |        |      |
 // | SHFT |     |     |     |    |    |     |          | PG_DOWN  |  PG_UP   |    HOME  |   END  |      |
 //                    | GUI |     | SPC |   | ENT |       | ALT     |
                         bindings = <
    &kp TAB    &kp N1   &kp N2   &kp N3   &kp N4   &kp N5              &kp N6         &kp N7         &kp N8         &kp N9         &kp N0      &trans
-   &kp LCTRL  &trans   &trans   &trans   &trans   &trans              &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT      &trans      &trans
+   &kp LCTRL  &kp CAPS &trans   &trans   &trans   &trans              &kp LEFT       &kp DOWN       &kp UP         &kp RIGHT      &trans      &trans
    &kp LSHFT  &trans   &trans   &trans   &trans   &trans              &trans         &kp PAGE_DOWN  &kp PAGE_UP    &kp HOME       &kp END     &trans
                    &kp LGUI &trans &kp SPACE                          &kp RET        &trans         &kp LALT
                         >;
@@ -66,12 +71,12 @@
                 raise_layer {
 // -----------------------------------------------------------------------------------------
 // |  TAB |  !   |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | DEL  |
-// | CTRL | CAPS |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
+// | CTRL |      |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
 // | SHFT |      |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+//                     | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &kp TAB   &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT                        &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp DEL
-   &kp LCTRL &kp CAPS &trans &trans   &trans   &trans                           &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
+   &kp LCTRL &trans   &trans &trans   &trans   &trans                           &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
    &kp LSHFT &trans   &trans &trans   &trans   &trans                           &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
                              &kp LGUI &trans   &kp SPACE                        &kp RET   &trans    &kp LALT
                         >;
