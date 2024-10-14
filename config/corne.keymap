@@ -29,12 +29,21 @@
         };
 
         behaviors {
-          bhm: balanced_homerow_mods {
+          bhm: balanced_homerow_mods { // suitable for fast shortcuts/navigating
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <200>;    // <---[[moderate duration]]
             quick-tap-ms = <0>;
-            flavor = "balanced";
+            flavor = "balanced"; // The 'balanced' flavor will trigger the hold behavior when the tapping-term-ms has expired or another key is pressed and released.
+            bindings = <&kp>, <&kp>;
+          };
+
+          hm: homerow_mods { // suitable for fast typing
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <0>;
+            flavor = "tap-preferred"; // The 'tap-preferred' flavor triggers the hold behavior when the tapping-term-ms has expired. Pressing another key within tapping-term-ms does not affect the decision.
             bindings = <&kp>, <&kp>;
           };
 
@@ -57,8 +66,8 @@
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
   &kp TAB   &kp Q        &kp W       &kp E       &kp R         &kp T              &kp Y &kp U         &kp I       &kp O       &kp P           &kp BSPC
-  &kp LCTRL &bhm LCTRL A &bhm LALT S &bhm LGUI D &bhm LSHIFT F &kp G              &kp H &bhm RSHIFT J &bhm LGUI K &bhm LALT L &bhm RCTRL SEMI &bhm CAPS SQT
-  &td0      &kp Z        &kp X       &kp C       &kp V         &kp B              &kp N &kp M         &kp COMMA   &kp DOT     &bhm GLOBE FSLH &kp ESC
+  &kp LCTRL &hm LCTRL A  &hm LALT S  &hm LGUI D  &hm LSHIFT F  &kp G              &kp H &hm RSHIFT J  &hm LGUI K  &hm LALT L  &hm RCTRL SEMI  &hm CAPS SQT
+  &td0      &kp Z        &kp X       &kp C       &kp V         &kp B              &kp N &kp M         &kp COMMA   &kp DOT     &hm GLOBE FSLH  &kp ESC
                                      &kp LGUI    &mo 1     &kp SPACE              &kp RET &mo 2 &kp LALT
                         >;
                 };
