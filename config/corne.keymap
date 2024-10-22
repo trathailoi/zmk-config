@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2020 The ZMK Contributors
+ j Copyright (c) 2020 The ZMK Contributors
  *
  * SPDX-License-Identifier: MIT
  */
@@ -25,7 +25,7 @@
           to_normal_keys_layer {
             bindings = <&tog 5>;
             key-positions = <17 18>; // g + h
-          }
+          };
 
          // to_adjust_2_layer {
          //   bindings = <&mo 4>;
